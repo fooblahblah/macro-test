@@ -5,16 +5,15 @@ lazy val compilerOptions = Seq(
   "-feature",
   "-unchecked",
   "-Xfatal-warnings",
-  "-Xfuture",
   "-Xlint",
-  "-Yno-adapted-args",
+  "-Ymacro-annotations",
   "-Ywarn-dead-code",
   "-Ywarn-numeric-widen",
   "-Ywarn-value-discard"
 )
 
 lazy val commonSettings = Seq(
-  scalaVersion := "2.12.10",
+  scalaVersion := "2.13.1",
   organization := "com.example",
   scalacOptions := compilerOptions
 )
