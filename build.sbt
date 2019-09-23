@@ -6,6 +6,7 @@ lazy val compilerOptions = Seq(
   "-unchecked",
   "-Xfatal-warnings",
   "-Xlint",
+  "-language:experimental.macros",
   "-Ymacro-annotations",
   "-Ywarn-dead-code",
   "-Ywarn-numeric-widen",

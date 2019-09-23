@@ -1,12 +1,26 @@
 package demo
 
-object Usage {
-   def main(args: Array[String]): Unit = {
-      println(Demo.stringer("Hello, world"))
+import Queries._
 
-      val world = "world"
-      val subject = "foo"
-      println(Demo.stringer(s"Hello, $world from $subject"))
+object Queries {
+   implicit class QueryHelper(private val sc: StringContext) extends AnyVal {
+      def query(args: Any*): String =
+         macro Demo.queryImpl
+   }
+}
+
+
+object Usage {
+   object Schema {
+      val name = "Foo.name"
+   }
+
+   def main(args: Array[String]): Unit = {
+      println(query"""
+        [:find ?a
+         :in $$
+         :where [?a ${Schema.name}]]
+      """)
    }
 }
 
